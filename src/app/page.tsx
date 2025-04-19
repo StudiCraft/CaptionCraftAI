@@ -1,6 +1,7 @@
 'use client';
 
 import {useState} from 'react';
+import Image from 'next/image'; // Import next/image
 import {Button} from '@/components/ui/button';
 import {Input} from '@/components/ui/input';
 import {Textarea} from '@/components/ui/textarea';
@@ -36,10 +37,14 @@ export default function Home() {
       setShortCaption(result.shortCaption);
       setMediumCaption(result.mediumCaption);
       setLongCaption(result.longCaption);
-    } catch (error: any) {
+    } catch (error: unknown) { // Use unknown type
+      let errorMessage = "An unknown error occurred";
+      if (error instanceof Error) {
+        errorMessage = error.message;
+      }
       toast({
         title: "Error generating caption",
-        description: error.message,
+        description: errorMessage,
         variant: "destructive",
       })
     } finally {
@@ -52,10 +57,14 @@ export default function Home() {
     try {
       const result = await adjustCaptionTone({caption: longCaption, tone});
       setAdjustedCaption(result.adjustedCaption);
-    } catch (error: any) {
+    } catch (error: unknown) { // Use unknown type
+      let errorMessage = "An unknown error occurred";
+      if (error instanceof Error) {
+        errorMessage = error.message;
+      }
       toast({
         title: "Error adjusting tone",
-        description: error.message,
+        description: errorMessage,
         variant: "destructive",
       })
     } finally {
@@ -83,6 +92,7 @@ export default function Home() {
           <Input
             type="file"
             id="imageUpload"
+            accept="image/*" // Added accept attribute
             onChange={handleImageUpload}
             className="focus:ring-teal-500 focus:border-teal-500 block w-full min-w-0 flex-1 rounded-none rounded-l-md sm:text-sm border-gray-300"
           />
@@ -91,7 +101,16 @@ export default function Home() {
           </span>
         </div>
         {imageUrl && (
-          <img src={imageUrl} alt="Uploaded" className="mt-2 rounded-md max-h-48 object-contain" />
+          // Use next/image
+          <div className="relative mt-2 h-48 w-full max-w-xs rounded-md overflow-hidden"> 
+            <Image 
+              src={imageUrl} 
+              alt="Uploaded" 
+              fill 
+              style={{ objectFit: 'contain' }} 
+              className="rounded-md" 
+            />
+          </div>
         )}
       </div>
 

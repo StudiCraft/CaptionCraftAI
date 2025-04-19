@@ -1,40 +1,72 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# dependencies
+# Dependencies
 /node_modules
 /.pnp
-.pnp.*
-.yarn/*
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/versions
+.pnp.js
 
-# testing
+# Testing
 /coverage
 
-# next.js
+# Next.js build outputs
 /.next/
 /out/
+/dist/
 
-# production
-/build
+# Production build artifacts (if using scripts like "export")
+# Ensure 'dist' isn't ignored if it's your designated build dir in next.config.js
+# /dist
 
-# misc
+# Static analysis cache
+/.eslintcache
+/.stylelintcache
+
+# Editor directories and files
+.idea
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.sublime-workspace
+
+# Miscellaneous
 .DS_Store
 *.pem
 
-# debug
+# Logs
+logs
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-.pnpm-debug.log*
+pnpm-debug.log*
+lerna-debug.log*
 
-# vercel
-.vercel
+# Environment variables
+.env*.local
+.env
 
-# typescript
+# genkit & firebase cache/state
+.genkit/cache
+.firebase
+firebase-debug.log
+database-debug.log
+storage-debug.log
+firestore-debug.log
+ui-debug.log
+*firestore.indexes.json
+*firestore.rules
+*storage.rules
+
+# Trace file(s) (ensure this is ignored if sensitive)
+# /dist/trace # Keeping this line commented out as per previous build log analysis
+
+# Turborepo
+.turbo
+
+# TypeScript cache
 *.tsbuildinfo
-next-env.d.ts
 
-.genkit/*
+# Output of sensitive files from debug sessions
+*.secret
