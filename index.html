@@ -1,24 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Full-Screen Iframe</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CaptionCraftAI</title>
+    <!-- Favicon -->
+    <link rel="icon" href="firebase_studio.ico" type="image/png"> x-icon
     <style>
-        /* Make the iframe take up the entire viewport */
-        body, html {
-            margin: 0; /* Remove default body margins */
-            padding: 0; /* Remove default body padding */
-            height: 100%; /* Make body and html fill the entire viewport */
-            overflow: hidden; /* Prevent scrollbars */
+        /* Basic styling for centering content */
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9; /* Light background for a clean look */
         }
-        iframe {
-            width: 100%;  /* Make the iframe width 100% of its container */
-            height: 100%; /* Make the iframe height 100% of its container */
-            border: none; /* Remove the default iframe border */
-            display: block; /* Ensure no extra space below the iframe */
+        .logo {
+            max-width: 200px; /* Adjust size of the logo */
+            height: auto;
+        }
+        .title {
+            margin-top: 10px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #333; /* Darker text color */
         }
     </style>
 </head>
 <body>
-    <iframe src="https://captioncraftai-studicraft.vercel.app"></iframe>
+    <!-- Logo Section -->
+    <img class="logo" src="firebase_studio.png" alt="CaptionCraftAI Logo">
+    <!-- Title Section -->
+    <div class="title">CaptionCraftAI</div>
 </body>
 </html>
