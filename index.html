@@ -5,36 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CaptionCraftAI</title>
     <!-- Favicon -->
-    <link rel="icon" href="firebase_studio.ico" type="image/png"> x-icon
+    <link rel="icon" href="firebase_studio.ico" type="image/x-icon">
     <style>
-        /* Basic styling for centering content */
+        /* Basic styling for the page */
         body {
             margin: 0;
             padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            height: 100vh;
             font-family: Arial, sans-serif;
             background-color: #f9f9f9; /* Light background for a clean look */
         }
+
+        /* Logo styling */
+        .logo-container {
+            text-align: center;
+            background-color: #ffffff; /* Optional background for the logo area */
+            padding: 10px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add a shadow for separation */
+        }
+
         .logo {
-            max-width: 200px; /* Adjust size of the logo */
+            max-width: 200px;
             height: auto;
         }
+
+        /* Title styling */
         .title {
             margin-top: 10px;
             font-size: 24px;
             font-weight: bold;
             color: #333; /* Darker text color */
         }
+
+        /* iframe styling */
+        .content {
+            margin-top: 20px; /* Add spacing between the logo/title and iframe */
+            display: flex;
+            justify-content: center;
+        }
+
+        iframe {
+            width: 80%;
+            height: 500px;
+            border: none;
+        }
     </style>
 </head>
 <body>
     <!-- Logo Section -->
-    <img class="logo" src="firebase_studio.png" alt="CaptionCraftAI Logo">
-    <!-- Title Section -->
-    <div class="title">CaptionCraftAI</div>
+    <div class="logo-container">
+        <img class="logo" src="firebase_studio.png" alt="CaptionCraftAI Logo">
+        <div class="title">CaptionCraftAI</div>
+    </div>
+
+    <!-- Content Section -->
+    <div class="content">
+        <!-- Example iframe content -->
+        <iframe src="https://captioncraftai-studicraft.vercel.app/" title="CaptionCraftAI"></iframe>
+    </div>
 </body>
 </html>
