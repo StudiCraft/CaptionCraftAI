@@ -3,64 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CaptionCraftAI</title>
-    <!-- Favicon -->
-    <link rel="icon" type="image/vnd.icon" href="/firebase_studio.ico">
-    <style>
-        /* Basic styling for the page */
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f9f9f9; /* Light background for a clean look */
-        }
-
-        /* Logo styling */
-        .logo-container {
-            text-align: center;
-            background-color: #ffffff; /* Optional background for the logo area */
-            padding: 10px 0;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add a shadow for separation */
-        }
-
-        .logo {
-            max-width: 200px;
-            height: auto;
-        }
-
-        /* Title styling */
-        .title {
-            margin-top: 10px;
-            font-size: 24px;
-            font-weight: bold;
-            color: #333; /* Darker text color */
-        }
-
-        /* iframe styling */
-        .content {
-            margin-top: 20px; /* Add spacing between the logo/title and iframe */
-            display: flex;
-            justify-content: center;
-        }
-
-        iframe {
-            width: 80%;
-            height: 500px;
-            border: none;
-        }
-    </style>
+    <title>CaptionCraft AI</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="CaptionCraftAIlogo.ico">
 </head>
 <body>
-    <!-- Logo Section -->
-    <div class="logo-container">
-        <img class="logo" src="firebase_studio.png" alt="CaptionCraftAI Logo">
-        <div class="title">CaptionCraftAI</div>
+    <div class="container">
+        <h1>CaptionCraft AI</h1>
+        <img src="CaptionCraftAIlogo.png" alt="CaptionCraftAI logo" class="logo" height="50%" width="50%">
+
+        <!-- Image Upload -->
+        <div class="mb-4">
+            <label for="imageUpload">Upload Image</label>
+            <div class="input-group">
+                <input type="file" id="imageUpload" accept="image/*">
+                <!-- Placeholder for file icon -->
+            </div>
+            <img id="imagePreview" src="" alt="Uploaded Image Preview" style="display: none; max-width: 200px; margin-top: 10px;">
+        </div>
+
+        <!-- Caption Generation Button -->
+        <div class="mb-4">
+            <button id="generateButton" disabled>Generate Captions</button>
+            <span id="loadingIndicator" style="display: none; margin-left: 10px;">Generating...</span>
+        </div>
+
+        <!-- Caption Preview and Selection -->
+        <div id="captionResults" class="mb-4" style="display: none;">
+            <h2>Captions</h2>
+            <div class="caption-grid">
+                <div>
+                    <h3>X (Twitter)</h3>
+                    <textarea id="shortCaption" rows="2" readonly></textarea>
+                    <p class="char-count" id="shortCharCount">Character Count: 0/280</p>
+                    <button class="copy-button" data-target="shortCaption">Copy</button>
+                </div>
+                <div>
+                    <h3>Bluesky</h3>
+                    <textarea id="mediumCaption" rows="2" readonly></textarea>
+                    <p class="char-count" id="mediumCharCount">Character Count: 0/300</p>
+                    <button class="copy-button" data-target="mediumCaption">Copy</button>
+                </div>
+                <div>
+                    <h3>Long Caption</h3>
+                    <textarea id="longCaption" rows="3" readonly></textarea>
+                    <p class="char-count" id="longCharCount">Character Count: 0</p>
+                    <button class="copy-button" data-target="longCaption">Copy</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tone Adjustment -->
+        <div id="toneAdjustment" class="mb-4" style="display: none;">
+            <h2>Tone Adjustment</h2>
+            <label for="toneSelect">Select Tone</label>
+            <select id="toneSelect">
+                <option value="funny">Funny</option>
+                <option value="serious">Serious</option>
+                <option value="informative">Informative</option>
+            </select>
+            <button id="adjustToneButton" class="mt-2" disabled>Adjust Tone</button>
+            <span id="adjustLoadingIndicator" style="display: none; margin-left: 10px;">Adjusting...</span>
+            <div id="adjustedCaptionResult" class="mt-2" style="display: none;">
+                <h3>Adjusted Caption</h3>
+                <textarea id="adjustedCaption" rows="3" readonly></textarea>
+                <button class="copy-button" data-target="adjustedCaption">Copy</button>
+            </div>
+        </div>
     </div>
 
-    <!-- Content Section -->
-    <div class="content">
-        <!-- Example iframe content -->
-        <iframe src="https://captioncraftai-studicraft.vercel.app/" title="CaptionCraftAI"></iframe>
-    </div>
+    <script src="script.js"></script>
 </body>
 </html>

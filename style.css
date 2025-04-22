@@ -1,0 +1,290 @@
+/* Extracted from globals.css - Requires processing/manual conversion */
+
+/* Tailwind base styles - these might need a build step or manual replacement */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CSS Variables (New Theme) */
+:root {
+  /* Define the core color palette */
+  --magenta: #C738BD;
+  --violet: #8A2BE2;
+  --orange-tone: #FF8C00; /* DarkOrange for accent */
+
+  /* Define UI element colors based on the palette */
+  --background-start: #f4e8f7; /* Light violet/pink tint for gradient start */
+  --background-end: #e8eaf7;   /* Light blue/violet tint for gradient end */
+  --foreground: #331c3f;      /* Dark violet/grey for text */
+  --card: rgba(255, 255, 255, 0.85); /* Semi-transparent white card */
+  --card-foreground: var(--foreground);
+  --popover: var(--card);
+  --popover-foreground: var(--card-foreground);
+  --primary: var(--violet);         /* Violet for primary buttons */
+  --primary-foreground: #ffffff;   /* White text on primary buttons */
+  --secondary: #e8d5e4;       /* Light magenta/grey for secondary elements */
+  --secondary-foreground: #5c3c61; /* Darker magenta/grey text */
+  --muted: var(--secondary);
+  --muted-foreground: #7a5f80;
+  --accent: var(--orange-tone);     /* Orange for accents */
+  --accent-foreground: #ffffff;
+  --destructive: #e53e3e; /* Red for destructive actions */
+  --destructive-foreground: #ffffff;
+  --border: rgba(138, 43, 226, 0.3); /* Semi-transparent violet border */
+  --input: rgba(255, 255, 255, 0.9); /* Slightly transparent white input background */
+  --input-border: var(--border);
+  --ring: rgba(138, 43, 226, 0.5); /* Violet ring for focus */
+  --radius: 0.75rem; /* Slightly larger radius for a softer feel */
+}
+
+/* Grainy Background Effect */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noise)"/></svg>');
+  opacity: 0.03; /* Adjust grain intensity */
+  z-index: -1; /* Place behind content */
+  pointer-events: none; /* Allow clicks through */
+}
+
+/* Base element styling */
+* {
+  box-sizing: border-box;
+  border-color: var(--border);
+}
+
+textarea {
+  resize: none;
+}
+
+body {
+  /* Apply the gradient background */
+  background: linear-gradient(135deg, var(--background-start), var(--background-end));
+  color: var(--foreground);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Softer font */
+  margin: 0;
+  padding: 0;
+  min-height: 100vh; /* Ensure gradient covers full height */
+  position: relative; /* Needed for the ::before pseudo-element */
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Styles from index.html structure */
+.container {
+  max-width: 800px;
+  margin: 40px auto; /* Increased margin */
+  background-color: var(--card);
+  padding: 30px; /* Increased padding */
+  border-radius: var(--radius);
+  box-shadow: 0 8px 25px rgba(100, 50, 150, 0.15); /* Softer, violet-tinted shadow */
+  border: 1px solid var(--border);
+  backdrop-filter: blur(5px); /* Optional: Frosted glass effect */
+  -webkit-backdrop-filter: blur(5px); /* Safari support */
+  text-align: center;
+}
+
+h1 {
+  color: var(--foreground);
+  font-size: 1.8rem; /* Slightly larger */
+  font-weight: 600; /* Slightly less bold */
+  margin-bottom: 1.5rem;
+  text-align: center; /* Center title */
+  color: var(--violet); /* Use violet for main title */
+}
+
+h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: var(--magenta); /* Use magenta for section titles */
+    border-bottom: 1px solid rgba(199, 56, 189, 0.2); /* Light magenta underline */
+    padding-bottom: 0.25rem;
+}
+
+h3 {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--foreground);
+    margin-bottom: 0.5rem; /* Add space below h3 */
+}
+
+label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--muted-foreground);
+    margin-bottom: 0.35rem;
+}
+
+.input-group {
+    display: flex;
+    margin-top: 0.25rem;
+    position: relative; /* For potential icon positioning */
+}
+
+input[type="file"] {
+    padding: 0.6rem 0.85rem;
+    border: 1px solid var(--input-border);
+    border-radius: var(--radius);
+    flex-grow: 1;
+    background-color: var(--input);
+    color: var(--foreground);
+    font-size: 0.9rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input[type="file"]:focus {
+    outline: none;
+    border-color: var(--violet);
+    box-shadow: 0 0 0 2px var(--ring);
+}
+
+img#imagePreview {
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    margin-top: 1rem; /* Add more space above preview */
+    display: block; /* Center image if needed */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+button {
+    padding: 0.7rem 1.2rem; /* Slightly larger padding */
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background-color 0.2s, transform 0.1s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+button:hover:not(:disabled) {
+    background-color: var(--magenta); /* Shift to magenta on hover */
+    transform: translateY(-1px); /* Subtle lift effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+button:active:not(:disabled) {
+    transform: translateY(0px); /* Press down effect */
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background-color: var(--muted);
+    color: var(--muted-foreground);
+    box-shadow: none;
+}
+
+textarea {
+    display: block;
+    width: 100%;
+    min-height: 70px; /* Slightly taller */
+    padding: 0.6rem 0.85rem;
+    border: 1px solid var(--input-border);
+    border-radius: var(--radius);
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+    background-color: var(--input);
+    color: var(--foreground);
+    transition: border-color 0.2s, box-shadow 0.2s;
+    line-height: 1.5; /* Improve readability */
+}
+
+textarea:focus {
+    outline: none;
+    border-color: var(--violet);
+    box-shadow: 0 0 0 2px var(--ring);
+}
+
+select {
+    display: block;
+    width: 100%;
+    padding: 0.6rem 0.85rem;
+    border: 1px solid var(--input-border);
+    border-radius: var(--radius);
+    margin-top: 0.25rem;
+    background-color: var(--input);
+    color: var(--foreground);
+    font-size: 0.9rem;
+    appearance: none; /* Allows custom arrow */
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%238A2BE2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right 0.7em top 50%, 0 0;
+    background-size: 0.65em auto, 100%;
+    cursor: pointer;
+}
+
+select:focus {
+    outline: none;
+    border-color: var(--violet);
+    box-shadow: 0 0 0 2px var(--ring);
+}
+
+.mb-4 {
+    margin-bottom: 1.5rem; /* Increased spacing */
+}
+
+.mt-2 {
+    margin-top: 0.75rem; /* Increased spacing */
+}
+
+.ml-2 {
+    margin-left: 0.75rem; /* Increased spacing */
+}
+
+.caption-grid > div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    position: relative;
+}
+
+.caption-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: -0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.char-count {
+    font-size: 0.8rem;
+    color: var(--muted-foreground);
+    margin-bottom: 0;
+    text-align: left;
+    float: none;
+}
+
+.copy-button {
+    background-color: var(--secondary);
+    color: var(--secondary-foreground);
+    font-size: 0.8rem;
+    padding: 0.3rem 0.6rem;
+    margin-left: 0.5rem;
+    margin-top: 0;
+    float: none;
+    position: static;
+    z-index: auto;
+}
+
+.copy-button:hover:not(:disabled) {
+    background-color: var(--accent);
+    color: var(--accent-foreground);
+    transform: translateY(-1px);
+}
+
+/* Style loading indicators */
+#loadingIndicator, #adjustLoadingIndicator {
+    color: var(--violet);
+    font-weight: 500;
+}
+
+/* Add specific styles based on components and Tailwind classes used in page.tsx */
