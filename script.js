@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // WARNING: Storing API keys directly in client-side code is insecure.
   // Consider using a backend proxy to handle API calls securely.
-  const API_KEY = 'AIzaSyD-THs_ZOXFHdsIEUTj0Eg_HqH3vMULSco';
+  const API_KEY = 'AIzaSyCqWrBqhu05Kbs9Mp_CvH57EPKSLhAjbq4';
   const API_URL_BASE = 'https://generativelanguage.googleapis.com/v1beta/models/';
   const MODEL_NAME = 'gemini-2.0-flash';
 
